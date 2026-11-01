@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e1240">
+  <meta name="description" content="Conocé a Ani Franza M. y el Método A.N.I.: un recorrido para volver a vos desde el autoconocimiento, la neutralización y la integración.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Ani Franza M. | Método A.N.I. para volver a vos</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --night: #1e1240;
+      --deep: #100b20;
+      --plum: #5b3b83;
+      --lavender: #b89eda;
+      --lilac-wash: #f0ebf5;
+      --paper: #fbfaf7;
+      --ink: #211b2a;
+      --muted: #716b76;
+      --gold: #c4923a;
+      --sage: #dce5d8;
+      --line: #ded9e2;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1190px, calc(100% - 64px)); margin-inline: auto; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold); font: 10px var(--mono); text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 23px; height: 1px; background: currentColor; }
+    .section { padding: clamp(70px, 9vw, 122px) 0; }
+    .section-title { max-width: 720px; margin: 14px 0 0; font: 400 clamp(38px, 5vw, 67px)/1.07 var(--serif); }
+    .section-title em { color: var(--plum); }
+    .section-intro { max-width: 620px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .topbar { position: fixed; z-index: 20; top: 0; left: 0; right: 0; color: #fff; background: var(--night); }
+    .nav-inner { width: min(1320px, calc(100% - 64px)); min-height: 82px; margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff2b; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font: italic 17px var(--serif); white-space: nowrap; }
+    .brand-mark { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #c4923a99; color: #e0bc78; font: 12px var(--mono); }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 36px); }
+    .nav-links a, .nav-contact { font-size: 11px; color: #ffffffc9; transition: color .2s ease; }
+    .nav-links a:hover, .nav-contact:hover { color: #e0bc78; }
+    .nav-contact { color: #e0bc78; border-bottom: 1px solid #c4923a80; padding-bottom: 4px; white-space: nowrap; }
+    .menu-button { display: none; border: 1px solid #ffffff66; background: transparent; padding: 9px 11px; cursor: pointer; font-size: 11px; }
+    .install-button { border: 1px solid #c4923a80; background: transparent; color: #e0bc78; padding: 8px 11px; cursor: pointer; font-size: 10px; white-space: nowrap; }
+    .install-button:hover { background: #c4923a1c; }
+    .app-note { position: fixed; z-index: 50; left: 50%; bottom: 20px; width: min(440px, calc(100% - 32px)); padding: 14px 16px; background: var(--deep); border: 1px solid #c4923a80; color: #fff; box-shadow: 0 12px 40px #100b2050; font-size: 12px; line-height: 1.55; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+    .app-note.is-visible { transform: translate(-50%, 0); opacity: 1; }
+
+    .hero { min-height: 780px; height: min(920px, 100svh); position: relative; display: grid; grid-template-columns: 1.03fr .97fr; background: var(--night); color: #fff; overflow: hidden; }
+    .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 120px 6vw 82px max(6vw, calc((100vw - 1190px) / 2)); }
+    .hero .eyebrow { color: #dfb96e; }
+    .hero h1 { margin: 29px 0 22px; font: 400 clamp(60px, 8.5vw, 118px)/.88 var(--serif); letter-spacing: 0; }
+    .hero h1 em { color: var(--lavender); font-weight: 400; }
+    .hero-subtitle { margin: 0 0 22px; color: #e0bc78; font: 10px var(--mono); text-transform: uppercase; }
+    .hero-quote { max-width: 500px; margin: 0; border-left: 1px solid #c4923a8a; padding-left: 19px; color: #ede8f8c9; font: italic 18px/1.65 var(--serif); }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 23px; margin-top: 30px; }
+    .button-primary { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 19px; background: var(--gold); color: var(--deep); font-size: 11px; font-weight: 700; transition: background .2s, transform .2s; }
+    .button-primary:hover { background: #e0bc78; transform: translateY(-2px); }
+    .button-quiet { color: #ffffffd1; font-size: 11px; border-bottom: 1px solid #ffffff66; padding-bottom: 5px; }
+    .hero-location { margin-top: 43px; color: #ffffff79; font: 9px var(--mono); text-transform: uppercase; }
+    .hero-portrait { position: relative; min-width: 0; overflow: hidden; background: #33234b; }
+    .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+    .hero-portrait::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, var(--night) 0%, #1e124026 24%, transparent 72%); }
+    .hero-caption { position: absolute; z-index: 2; right: 7%; bottom: 8%; color: #fff; font: 9px var(--mono); text-transform: uppercase; letter-spacing: 0; }
+    .scroll-cue { position: absolute; z-index: 3; left: 50%; bottom: 22px; color: #ffffff9c; font: 9px var(--mono); text-transform: uppercase; transform: translateX(-50%); }
+    .scroll-cue::after { content: "↓"; margin-left: 9px; color: #e0bc78; }
+
+    .story { background: var(--paper); }
+    .story-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(40px, 9vw, 130px); align-items: start; margin-top: 50px; }
+    .story-aside { position: sticky; top: 110px; }
+    .story-photo { width: 100%; max-height: 500px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; }
+    .photo-caption { padding-top: 12px; color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+    .story-text p { margin: 0 0 19px; font-size: 15px; line-height: 1.9; color: #4b4552; }
+    .story-text strong { color: var(--night); font-weight: 600; }
+    .story-quote { margin: 34px 0; padding: 4px 0 4px 22px; border-left: 2px solid var(--gold); color: var(--plum); font: italic 24px/1.45 var(--serif); }
+    .formation { margin-top: 34px; padding-top: 23px; border-top: 1px solid var(--line); }
+    .formation h3 { margin: 0 0 15px; font: 10px var(--mono); color: var(--muted); text-transform: uppercase; }
+    .formation-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 25px; }
+    .formation-item { display: flex; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--line); padding: 12px 0; font-size: 12px; line-height: 1.5; }
+    .formation-item::before { content: "◆"; color: var(--gold); font-size: 8px; flex: 0 0 auto; }
+
+    .manifesto { padding: clamp(75px, 11vw, 145px) 32px; text-align: center; color: #fff; background: var(--night); position: relative; overflow: hidden; }
+    .manifesto-inner { position: relative; max-width: 920px; margin: auto; }
+    .manifesto .eyebrow { justify-content: center; }
+    .manifesto blockquote { margin: 31px auto 20px; font: 400 clamp(32px, 5vw, 62px)/1.2 var(--serif); }
+    .manifesto blockquote em { color: var(--lavender); }
+    .manifesto p { max-width: 640px; margin: 0 auto; color: #ffffffa6; font-size: 14px; line-height: 1.85; }
+    .manifesto::before, .manifesto::after { content: ""; position: absolute; border: 1px solid #c4923a33; border-radius: 50%; width: 380px; aspect-ratio: 1; pointer-events: none; }
+    .manifesto::before { left: -250px; top: -240px; }
+    .manifesto::after { right: -260px; bottom: -270px; }
+
+    .approach { background: var(--lilac-wash); }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 45px; background: #5b3b8328; border: 1px solid #5b3b8328; }
+    .approach-item { min-height: 205px; padding: 25px 22px; background: var(--lilac-wash); transition: background .2s; }
+    .approach-item:hover { background: #e6deef; }
+    .approach-number { color: var(--gold); font: 10px var(--mono); }
+    .approach-item h3 { margin: 21px 0 9px; color: var(--night); font: 500 18px var(--serif); }
+    .approach-item p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .method-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 8vw, 105px); align-items: end; }
+    .method-intro .section-title { margin-top: 14px; }
+    .method-intro .section-intro { margin: 0 0 5px; }
+    .book-note { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; margin-top: 54px; padding: 27px 30px; border-left: 2px solid var(--gold); background: #fff; }
+    .book-mark { width: 52px; height: 66px; display: grid; place-items: center; border: 1px solid #c4923a80; color: var(--gold); font: italic 22px var(--serif); transform: rotate(-4deg); }
+    .book-note small { display: block; margin-bottom: 5px; color: var(--gold); font: 9px var(--mono); text-transform: uppercase; }
+    .book-note h3 { margin: 0 0 5px; color: var(--night); font: 500 21px var(--serif); }
+    .book-note p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .services { background: var(--paper); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .service-card { min-height: 385px; display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--line); background: #fff; }
+    .service-index { color: var(--gold); font: 10px var(--mono); }
+    .service-card h3 { margin: 24px 0 8px; font: 500 27px/1.14 var(--serif); color: var(--night); }
+    .service-subtitle { margin: 0; color: var(--plum); font: italic 14px var(--serif); }
+    .service-card p { margin: 18px 0; color: #5c5662; font-size: 13px; line-height: 1.8; }
+    .service-facts { margin: 0 0 19px; padding: 13px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font: 9px/1.8 var(--mono); text-transform: uppercase; }
+    .service-link { align-self: flex-start; margin-top: auto; color: var(--plum); font-size: 11px; font-weight: 700; border-bottom: 1px solid #5b3b8355; padding-bottom: 5px; }
+    .service-link:hover { color: var(--gold); }
+    .notice { margin: 22px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+
+    .testimonials { background: var(--sage); }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 43px; }
+    .testimonial { margin: 0; min-width: 0; padding: 12px; background: #fff; border: 1px solid #aeb9aa; }
+    .testimonial img { width: 100%; height: auto; }
+    .testimonial video { display: block; width: 100%; height: auto; background: #100b20; }
+    .testimonial figcaption { padding: 10px 4px 2px; color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+    .testimonial-note { margin-top: 20px; color: #566253; font-size: 11px; line-height: 1.6; }
+
+    .contact { padding: clamp(80px, 10vw, 132px) 0; color: #fff; background: var(--deep); text-align: center; }
+    .contact .eyebrow { justify-content: center; }
+    .contact h2 { max-width: 800px; margin: 18px auto 16px; font: 400 clamp(43px, 7vw, 88px)/1.02 var(--serif); }
+    .contact h2 em { color: var(--lavender); }
+    .contact-copy { max-width: 490px; margin: 0 auto 30px; color: #ffffffa6; font-size: 14px; line-height: 1.8; }
+    .social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 29px; }
+    .social-links a { padding: 9px 12px; border: 1px solid #ffffff36; color: #ffffffbd; font: 9px var(--mono); text-transform: uppercase; transition: color .2s, border-color .2s; }
+    .social-links a:hover { color: #e0bc78; border-color: #c4923a; }
+    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px max(32px, calc((100vw - 1190px) / 2)); background: var(--deep); border-top: 1px solid #ffffff1f; color: #ffffff6c; font: 9px var(--mono); }
+    footer strong { color: #ffffffb0; font: italic 14px var(--serif); }
+
+    @media (max-width: 900px) {
+      .container { width: min(100% - 46px, 720px); }
+      .nav-inner { width: calc(100% - 46px); }
+      .menu-button { display: inline-flex; align-items: center; gap: 8px; }
+      .nav-contact { display: none; }
+      .nav-links { position: fixed; inset: 72px max(23px, calc((100vw - 1320px) / 2)) auto auto; width: min(340px, calc(100vw - 46px)); max-height: calc(100svh - 92px); overflow-y: auto; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 18px 18px; background: var(--night); border: 1px solid #ffffff33; box-shadow: 0 18px 48px #100b2070; }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 14px 0; border-bottom: 1px solid #ffffff1f; font-size: 13px; }
+      .install-button { margin-top: 15px; padding: 13px; text-align: left; font-size: 12px; }
+      .hero { grid-template-columns: 1fr .8fr; min-height: 700px; }
+      .hero-copy { padding-left: 6vw; }
+      .story-grid { gap: 40px; grid-template-columns: .8fr 1.2fr; }
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .method-intro { grid-template-columns: 1fr; gap: 10px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-card:last-child { grid-column: span 2; min-height: 300px; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 68px; }
+      .container { width: calc(100% - 38px); }
+      .nav-inner { width: calc(100% - 38px); min-height: 68px; }
+      .brand { font-size: 15px; }
+      .menu-button { display: inline-flex; align-items: center; gap: 8px; }
+      .nav-contact { display: none; }
+      .nav-links { inset: 68px 19px auto auto; width: min(340px, calc(100vw - 38px)); max-height: calc(100svh - 88px); padding: 10px 16px 16px; }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 14px 0; border-bottom: 1px solid #ffffff1f; font-size: 13px; }
+      .install-button { margin-top: 15px; padding: 13px; text-align: left; font-size: 12px; }
+      .hero { min-height: 0; height: auto; grid-template-columns: 1fr; padding-top: 68px; }
+      .hero-copy { min-height: 570px; padding: 65px 24px 46px; order: 2; }
+      .hero-portrait { min-height: 440px; height: 57svh; max-height: 620px; order: 1; }
+      .hero-portrait img { object-position: center 18%; }
+      .hero-portrait::after { background: linear-gradient(0deg, var(--night) 0%, #1e124000 46%); }
+      .hero h1 { font-size: clamp(67px, 17vw, 100px); margin-top: 23px; }
+      .hero-quote { font-size: 17px; }
+      .hero-location { margin-top: 27px; }
+      .scroll-cue { display: none; }
+      .story-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+      .story-aside { position: static; max-width: 380px; }
+      .story-photo { max-height: 440px; }
+      .story-text p { font-size: 14px; }
+      .story-quote { font-size: 21px; }
+      .formation-list { grid-template-columns: 1fr; }
+      .manifesto { padding-inline: 23px; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .book-note { padding: 22px 18px; gap: 16px; }
+      .approach-item { min-height: auto; padding: 22px; }
+      .approach-item h3 { margin-top: 14px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card, .service-card:last-child { grid-column: auto; min-height: 0; padding: 24px; }
+      .service-link { margin-top: 10px; }
+      .testimonial-grid { grid-template-columns: 1fr; gap: 11px; margin-top: 30px; }
+      .testimonial { padding: 10px; }
+      footer { flex-direction: column; align-items: flex-start; padding-inline: 19px; gap: 8px; }
+    }
+    @media (max-width: 380px) {
+      .hero-copy { padding-inline: 19px; }
+      .hero h1 { font-size: 63px; }
+      .hero-portrait { min-height: 360px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .section-title { font-size: 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Ani Franza M., inicio"><span class="brand-mark">AF</span>Ani Franza M.</a>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav"><span aria-hidden="true">☰</span> Menú</button>
+      <nav class="nav-links" id="main-nav" aria-label="Navegación principal">
+        <a href="#metodo">El método</a>
+        <a href="#acompanamiento">Acompañamiento</a>
+        <a href="#sobre-ani">Sobre Ani</a>
+        <a href="#testimonios">Testimonios</a>
+        <button class="install-button" id="install-button" type="button">Instalar app</button>
+      </nav>
+      <a class="nav-contact" href="https://api.whatsapp.com/send?phone=5493513508205" target="_blank" rel="noopener noreferrer">Conectemos ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">Acompañamiento para volver a vos</div>
+        <h1 id="hero-title"><em>Ani</em><br>Franza M.</h1>
+        <p class="hero-subtitle">Coaching holístico · Inteligencia emocional · Desarrollo personal</p>
+        <blockquote class="hero-quote">No necesitás exigirte más. Necesitás escucharte distinto. Te acompaño a comprender lo que te frena, recuperar claridad y construir una vida más coherente con quien querés ser.</blockquote>
+        <div class="hero-actions">
+          <a class="button-primary" href="https://api.whatsapp.com/send?phone=5493513508205&text=Hola%20Ani%2C%20quiero%20empezar%20mi%20proceso." target="_blank" rel="noopener noreferrer">Quiero empezar mi proceso</a>
+          <a class="button-quiet" href="#metodo">Conocé el Método A.N.I. ↓</a>
+        </div>
+        <p class="hero-location">Un espacio para mirarte con más verdad</p>
+      </div>
+      <div class="hero-portrait">
+        <img src="https://ugc.production.linktr.ee/32e45675-b228-4719-9ac5-c0f21f06cf48_youtube-perfil.png" alt="Retrato de Ani Franza M." fetchpriority="high">
+        <span class="hero-caption">Ani Franza M. · Córdoba</span>
+      </div>
+      <span class="scroll-cue">Sigue leyendo</span>
+    </section>
+
+    <section class="section story" id="sobre-ani" aria-labelledby="story-title">
+      <div class="container">
+        <div class="eyebrow">Quién acompaña</div>
+        <h2 class="section-title" id="story-title">Soy Ani.<br><em>Y creo en los procesos con raíz.</em></h2>
+        <div class="story-grid">
+          <aside class="story-aside">
+            <img class="story-photo" src="https://ugc.production.linktr.ee/32e45675-b228-4719-9ac5-c0f21f06cf48_youtube-perfil.png" alt="Ani Franza M., en Córdoba, Argentina" loading="lazy">
+            <div class="photo-caption">Anabella (Ani) Franza M. · Córdoba, Argentina</div>
+          </aside>
+          <div class="story-text">
+            <p>Soy <strong>Anabella, Ani Franza M.</strong> Nací en Córdoba, Argentina. Soy una mujer en permanente evolución, que aprendió que la autenticidad no es una llegada, sino el camino mismo.</p>
+            <p>Acompaño a personas sensibles, inquietas y multipotenciales que sienten que hay una versión más auténtica de su vida esperando espacio.</p>
+            <p>Soy una persona de <strong>Alta Sensibilidad (PAS)</strong>. Durante años viví esa profundidad como un exceso; hoy es una de mis mayores claridades. Me identifico también como Manifesting Generator 2/4, con la Cruz de la Penetración: alguien que va al fondo de las cosas y no se queda en la superficie.</p>
+            <p>Durante años busqué comprender lo que me pasaba internamente en contextos que priorizaban lo material por sobre lo integral. Ese recorrido me llevó a descubrir que las emociones no eran el problema, sino una puerta para revisar creencias, historia personal y la relación entre mente, cuerpo y dimensión interna.</p>
+            <p>Transité distintos caminos de transformación, no como técnicas que aplico, sino como <strong>experiencias que me formaron</strong>. Hoy acompaño procesos desde una mirada integradora, donde lo emocional, lo mental, lo físico y lo espiritual son partes de un mismo proceso y pueden traducirse en cambios concretos.</p>
+            <p>También estoy escribiendo un libro, una nueva forma de compartir este recorrido y las preguntas que me siguen acompañando.</p>
+            <blockquote class="story-quote">“Soy sólo un alma humana, tocando a otra alma humana.”</blockquote>
+            <div class="formation">
+              <h3>Formación y recorrido</h3>
+              <div class="formation-list">
+                <div class="formation-item">Coaching Ontológico Profesional</div>
+                <div class="formation-item">Inteligencia Emocional</div>
+                <div class="formation-item">Biodecodificación emocional</div>
+                <div class="formation-item">Máster en Potencial Humano</div>
+                <div class="formation-item">Psicología, constelaciones familiares y meditación Vipassana</div>
+                <div class="formation-item">Administración de Empresas de Logística</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" aria-label="Propósito">
+      <div class="manifesto-inner">
+        <div class="eyebrow">Volver a vos</div>
+        <blockquote>“No necesitás exigirte más.<br><em>Necesitás escucharte distinto.</em>”</blockquote>
+        <p>Cuando comprendés lo que te pasa, dejás de pelearte con vos y empezás a elegir distinto. El camino no se trata de convertirte en alguien más, sino de volver a escucharte.</p>
+      </div>
+    </section>
+
+    <section class="section approach" id="metodo" aria-labelledby="approach-title">
+      <div class="container">
+        <div class="method-intro">
+          <div><div class="eyebrow">El Método A.N.I.</div><h2 class="section-title" id="approach-title">De la confusión<br><em>a la coherencia.</em></h2></div>
+          <p class="section-intro">A.N.I. es un recorrido de tres movimientos para volver a escucharte, soltar lo que ya no necesitás cargar e integrar una forma más auténtica de habitar tu vida.</p>
+        </div>
+        <div class="approach-grid">
+          <article class="approach-item"><span class="approach-number">01 / RECONOCER</span><h3>Autoconocimiento</h3><p>Mirar con honestidad qué está pasando: pensamientos, emociones, deseos y patrones. Ponerle nombre a lo que antes se sentía confuso.</p><blockquote>“¿Qué necesito reconocer de mí hoy?”</blockquote></article>
+          <article class="approach-item"><span class="approach-number">02 / SOLTAR</span><h3>Neutralización</h3><p>Soltar cargas emocionales, creencias y programas que ya no tienen que dirigir tus decisiones. Hacer espacio sin pelear con tu historia.</p><blockquote>“¿Qué puedo dejar de sostener para avanzar?”</blockquote></article>
+          <article class="approach-item"><span class="approach-number">03 / INTEGRAR</span><h3>Integración</h3><p>Convertir lo comprendido en una forma más coherente de vivir. Elegir desde tu presente, con herramientas concretas y pasos posibles.</p><blockquote>“¿Qué quiero empezar a practicar en mi vida?”</blockquote></article>
+        </div>
+        <div class="book-note"><span class="book-mark" aria-hidden="true">A.</span><div><small>En proceso</small><h3>Un libro que también está naciendo</h3><p>Estoy escribiendo un libro para seguir explorando este regreso a una misma, con la honestidad y la integración que atraviesan mi camino.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section services" id="acompanamiento" aria-labelledby="services-title">
+      <div class="container">
+        <div class="eyebrow">Formas de acompañarte</div>
+        <h2 class="section-title" id="services-title">Un espacio para<br><em>lo que hoy necesitás.</em></h2>
+        <p class="section-intro">Elegí el formato que mejor acompañe tu momento. Todos parten del mismo lugar: una conversación honesta y el deseo de vivir con más presencia.</p>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-index">01 / INDIVIDUAL</span>
+            <h3>Sesiones 1:1</h3>
+            <p class="service-subtitle">Acompañamiento personalizado</p>
+            <p>Un espacio confidencial para ordenar lo que te pasa, comprender lo que te frena y volver a elegir con más claridad.</p>
+            <div class="service-facts">Proceso personalizado · Coaching ontológico · Inteligencia emocional</div>
+            <a class="service-link" href="https://api.whatsapp.com/send?phone=5493513508205&text=Hola%20Ani%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20sesiones%201%3A1." target="_blank" rel="noopener noreferrer">Quiero saber más ↗</a>
+          </article>
+          <article class="service-card">
+            <span class="service-index">02 / SOSTÉN PARA EL PROCESO</span>
+            <h3>Comunidad</h3>
+            <p class="service-subtitle">Seguir el camino acompañadas</p>
+            <p>Un espacio para no hacer el camino en soledad: conversaciones, prácticas y encuentros para integrar lo que vas descubriendo.</p>
+            <div class="service-facts">Encuentros grupales · Prácticas de presencia · Acompañamiento cercano</div>
+            <a class="service-link" href="https://chat.whatsapp.com/KopAcTpp7WJDEf5jasKo3G" target="_blank" rel="noopener noreferrer">Conocer la comunidad ↗</a>
+          </article>
+          <article class="service-card">
+            <span class="service-index">03 / APRENDER EN MOVIMIENTO</span>
+            <h3>Talleres</h3>
+            <p class="service-subtitle">Experiencias para volver a vos</p>
+            <p>Masterclasses y espacios vivenciales para trabajar emociones, autoexigencia, decisiones y la vida que querés construir.</p>
+            <div class="service-facts">Temas concretos · Formato online · Herramientas para llevarte</div>
+            <a class="service-link" href="https://api.whatsapp.com/send?phone=5493513508205&text=Hola%20Ani%2C%20quiero%20conocer%20los%20pr%C3%B3ximos%20talleres." target="_blank" rel="noopener noreferrer">Consultar talleres ↗</a>
+          </article>
+        </div>
+        <p class="notice"><strong>Sentir desde Adentro</strong> es un programa vivencial de 4 encuentros semanales, 100% online. <a href="https://anifranzam.github.io/SentirDesdeAdentro/" target="_blank" rel="noopener noreferrer">Conocé el programa ↗</a></p>
+        <p class="notice"><strong>DeProVi · Descubrir tu Propósito de Vida</strong> es un taller gratuito disponible en YouTube. <a href="https://youtube.com/playlist?list=PLz6-t1-ZLSnCBYkbUdI1Ws1pvm9Onaql9" target="_blank" rel="noopener noreferrer">Ver el curso ↗</a></p>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimonios" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="eyebrow">04 / Voces que resonaron</div>
+        <h2 class="section-title" id="testimonials-title">Palabras de quienes<br><em>transitaron el proceso.</em></h2>
+        <p class="section-intro">Los testimonios se muestran tal como fueron compartidos en la página de Sentir desde Adentro.</p>
+        <div class="testimonial-grid">
+          <figure class="testimonial"><video controls playsinline preload="metadata" aria-label="Testimonio en video de Vanesa Cruañas"><source src="./Vane%20Testimonio%20con%20texto.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><figcaption>Vanesa Cruañas · Testimonio en video</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/MateoRissoPatron_sin%20fecha.png" alt="Testimonio de Mateo Risso Patron" loading="lazy"><figcaption>Mateo Risso Patron</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/AnaMaria_sin%20fecha.png" alt="Testimonio de Ana Maria" loading="lazy"><figcaption>Ana Maria</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/rociovanessa_sin%20fecha.png" alt="Testimonio de Rocio Vanesa" loading="lazy"><figcaption>Rocio Vanesa</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/maria_sin%20fecha.png" alt="Testimonio de Maria" loading="lazy"><figcaption>Maria</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/gabriela%20susana_sin%20fecha.png" alt="Testimonio de Gabriela Susana" loading="lazy"><figcaption>Gabriela Susana</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/sergiogarzon_sin%20fecha.png" alt="Testimonio de Sergio Garzon" loading="lazy"><figcaption>Sergio Garzon</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/flavia%20garnica_sin%20fecha.jpg" alt="Testimonio de Flavia Garnica" loading="lazy"><figcaption>Flavia Garnica</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/Erika%20Baier_sin%20fecha.jpg" alt="Testimonio de Erika Baier" loading="lazy"><figcaption>Erika Baier</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/Romina_sin%20fecha.jpg" alt="Testimonio de Romina" loading="lazy"><figcaption>Romina</figcaption></figure>
+          <figure class="testimonial"><img src="https://anifranzam.github.io/SentirDesdeAdentro/daniel_sin%20fecha.png" alt="Testimonio de Daniel" loading="lazy"><figcaption>Daniel</figcaption></figure>
+        </div>
+        <p class="testimonial-note">Los nombres y textos pertenecen a cada persona que compartió su experiencia.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="eyebrow">05 / Contacto</div>
+        <h2 id="contact-title">¿Resonó algo<br><em>en vos?</em></h2>
+        <p class="contact-copy">No necesitás tener todo claro para escribirme. Si algo de lo que leíste te movió por dentro, eso ya es suficiente para empezar una conversación.</p>
+        <a class="button-primary" href="https://api.whatsapp.com/send?phone=5493513508205&text=Hola%20Ani%2C%20le%C3%AD%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conectar." target="_blank" rel="noopener noreferrer">Escribime por WhatsApp ↗</a>
+        <nav class="social-links" aria-label="Redes sociales">
+          <a href="https://instagram.com/anifranzam" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://youtube.com/@anifranzam" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://tiktok.com/@anifranzam" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://linkedin.com/in/anifranzam" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://cafecito.app/anifranzam" target="_blank" rel="noopener noreferrer">Cafecito</a>
+          <a href="https://linktr.ee/anifranzam" target="_blank" rel="noopener noreferrer">Linktree</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <footer><strong>Ani Franza M.</strong><span>© 2026 · Córdoba, Argentina · @anifranzam</span><a href="#inicio">Volver arriba ↑</a></footer>
+  <div class="app-note" id="app-note" role="status" aria-live="polite"></div>
+
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mainNav = document.getElementById("main-nav");
+    const installButton = document.getElementById("install-button");
+    const appNote = document.getElementById("app-note");
+    let installPrompt;
+    let appNoteTimer;
+
+    function showAppNote(message) {
+      appNote.textContent = message;
+      appNote.classList.add("is-visible");
+      clearTimeout(appNoteTimer);
+      appNoteTimer = setTimeout(() => appNote.classList.remove("is-visible"), 6000);
+    }
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      installPrompt = event;
+    });
+
+    installButton.addEventListener("click", async () => {
+      if (installPrompt) {
+        installPrompt.prompt();
+        await installPrompt.userChoice;
+        installPrompt = null;
+        return;
+      }
+
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+      if (isStandalone) {
+        showAppNote("Ya estás usando Ani Franza M. como app.");
+      } else {
+        showAppNote("Para instalar: en Android o Chrome, abre el menú del navegador y elige «Instalar app». En iPhone, toca Compartir y luego «Agregar a pantalla de inicio».");
+      }
+      mainNav.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.innerHTML = '<span aria-hidden="true">☰</span> Menú';
+    });
+
+    window.addEventListener("appinstalled", () => {
+      showAppNote("Ani Franza M. ya está instalada en tu dispositivo.");
+    });
+
+    if ("serviceWorker" in navigator) {
+      const hadServiceWorkerController = Boolean(navigator.serviceWorker.controller);
+      let isReloadingForUpdate = false;
+      let currentPageSnapshot;
+
+      async function checkForPageChanges() {
+        try {
+          const response = await fetch("./index.html", { cache: "no-store" });
+          if (!response.ok) return;
+          const pageSnapshot = await response.text();
+          if (currentPageSnapshot === undefined) {
+            currentPageSnapshot = pageSnapshot;
+          } else if (pageSnapshot !== currentPageSnapshot && !isReloadingForUpdate) {
+            isReloadingForUpdate = true;
+            window.location.reload();
+          }
+        } catch {
+          // Keep the current page available when offline.
+        }
+      }
+
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (!hadServiceWorkerController || isReloadingForUpdate) return;
+        isReloadingForUpdate = true;
+        window.location.reload();
+      });
+
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+          .then((registration) => {
+            const checkForUpdates = () => {
+              registration.update().catch(() => {});
+              checkForPageChanges();
+            };
+            checkForUpdates();
+            window.setInterval(checkForUpdates, 5 * 60 * 1000);
+            document.addEventListener("visibilitychange", () => {
+              if (document.visibilityState === "visible") checkForUpdates();
+            });
+          })
+          .catch(() => {
+            showAppNote("No se pudo activar el modo sin conexión en este navegador.");
+          });
+      });
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      mainNav.classList.toggle("is-open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
+      menuButton.innerHTML = isOpen ? '<span aria-hidden="true">☰</span> Menú' : '<span aria-hidden="true">×</span> Cerrar';
+    });
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("is-open");
+        document.body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.innerHTML = '<span aria-hidden="true">☰</span> Menú';
+      });
+    });
+  </script>
+</body>
+</html>

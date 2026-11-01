@@ -1,0 +1,21 @@
+{
+  "id": "./index.html",
+  "name": "Ani Franza M. | Método A.N.I. para volver a vos",
+  "short_name": "Ani Franza",
+  "description": "Conocé a Ani Franza M., el Método A.N.I. y sus espacios de acompañamiento para volver a vos.",
+  "lang": "es-AR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#100b20",
+  "theme_color": "#1e1240",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
